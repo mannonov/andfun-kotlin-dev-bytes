@@ -1,5 +1,6 @@
 package uz.uzdroid.andfunkotlindevbytes.service
 
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import kotlinx.coroutines.Deferred
 import retrofit2.Call
 import retrofit2.Retrofit
@@ -20,6 +21,7 @@ interface InfoService {
 val retrofit = Retrofit.Builder()
     .baseUrl(BASE_URL)
     .addConverterFactory(MoshiConverterFactory.create())
+    .addCallAdapterFactory(CoroutineCallAdapterFactory())
     .build()
 
 
