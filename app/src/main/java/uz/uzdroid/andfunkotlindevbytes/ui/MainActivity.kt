@@ -34,12 +34,9 @@ class MainActivity : AppCompatActivity() {
 
         infoAdapter = InfoAdapter()
 
-
-
-        infoViewModel.infoVideos.observe(this, Observer {
-            infoAdapter.info = it
-            infoAdapter.notifyDataSetChanged()
-        })
+        infoViewModel.infoVideos.observe(this) {
+            infoAdapter.submitList(it)
+        }
 
         binding.recyclerView.apply {
             adapter = infoAdapter
