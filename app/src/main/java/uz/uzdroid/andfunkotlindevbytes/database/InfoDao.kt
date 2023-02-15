@@ -6,8 +6,6 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import uz.uzdroid.andfunkotlindevbytes.model.Info
-import uz.uzdroid.andfunkotlindevbytes.model.Videos
-
 
 @Dao
 interface InfoDao {
@@ -17,5 +15,4 @@ interface InfoDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertVideo(vararg info: Info)
-
 }

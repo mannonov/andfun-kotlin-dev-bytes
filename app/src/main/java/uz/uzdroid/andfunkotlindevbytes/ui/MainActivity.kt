@@ -2,7 +2,6 @@ package uz.uzdroid.andfunkotlindevbytes.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import uz.uzdroid.andfunkotlindevbytes.adapter.InfoAdapter
@@ -40,7 +39,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.recyclerView.apply {
             adapter = infoAdapter
-            layoutManager = LinearLayoutManager(applicationContext)}
-
+            layoutManager = LinearLayoutManager(applicationContext)
+        }
     }
 }

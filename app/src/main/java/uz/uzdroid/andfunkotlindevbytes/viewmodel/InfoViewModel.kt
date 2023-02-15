@@ -1,17 +1,13 @@
 package uz.uzdroid.andfunkotlindevbytes.viewmodel
 
-import android.util.Log
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import kotlinx.coroutines.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 import uz.uzdroid.andfunkotlindevbytes.database.InfoDao
-import uz.uzdroid.andfunkotlindevbytes.model.Videos
 import uz.uzdroid.andfunkotlindevbytes.repository.InfoRepository
-import uz.uzdroid.andfunkotlindevbytes.service.InfoApi
 
 class InfoViewModel(val infoDao: InfoDao) : ViewModel() {
 
@@ -20,26 +16,17 @@ class InfoViewModel(val infoDao: InfoDao) : ViewModel() {
 
     val repo = InfoRepository(infoDao)
 
-
     val infoVideos = repo.infoVideos
 
     init {
 
         fetchInfo()
-
     }
 
     private fun fetchInfo() {
-
-
-
         viewModelScope.launch {
-
             repo.fetchVideos()
-
-
         }
-
     }
 
     class InfoViewModelFactory(val infoDao: InfoDao) : ViewModelProvider.Factory {
@@ -48,10 +35,6 @@ class InfoViewModel(val infoDao: InfoDao) : ViewModel() {
                 return InfoViewModel(infoDao = infoDao) as T
             }
             throw IllegalArgumentException("infoViewModeldan boshqasini tekshirdi")
-
         }
-
-
     }
-
 }

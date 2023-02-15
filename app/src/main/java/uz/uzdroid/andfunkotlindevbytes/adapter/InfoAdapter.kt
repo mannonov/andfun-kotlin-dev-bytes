@@ -1,6 +1,5 @@
 package uz.uzdroid.andfunkotlindevbytes.adapter
 
-
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -12,16 +11,13 @@ import uz.uzdroid.andfunkotlindevbytes.model.Info
 
 class InfoAdapter : ListAdapter<Info, InfoAdapter.ViewHolder>(IfoComparator()) {
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = InfoItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
         holder.bind(getItem(position))
-
     }
 
     class ViewHolder(val binding: InfoItemBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -37,7 +33,6 @@ class InfoAdapter : ListAdapter<Info, InfoAdapter.ViewHolder>(IfoComparator()) {
                 tvTime.text = info.updated
             }
         }
-
     }
 
     class IfoComparator : DiffUtil.ItemCallback<Info>() {
@@ -48,11 +43,9 @@ class InfoAdapter : ListAdapter<Info, InfoAdapter.ViewHolder>(IfoComparator()) {
 
         override fun areContentsTheSame(oldItem: Info, newItem: Info): Boolean {
             return oldItem.description == newItem.description &&
-                    oldItem.thumbnail == newItem.thumbnail &&
-                    oldItem.title == newItem.title &&
-                    oldItem.updated == newItem.updated
+                oldItem.thumbnail == newItem.thumbnail &&
+                oldItem.title == newItem.title &&
+                oldItem.updated == newItem.updated
         }
-
     }
-
 }

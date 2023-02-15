@@ -4,7 +4,6 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-
 @Entity(tableName = "video_cache")
 data class Info(
 
@@ -24,6 +23,6 @@ data class Info(
     val url: String,
 
     @ColumnInfo(name = "thumbnail")
-    val thumbnail: String
+    val thumbnail: String,
 
 )
